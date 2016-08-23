@@ -3,8 +3,8 @@
  * Copyright 2016 NXT
  * Licensed under the MIT License
  */
-var Class = require("./Class.js");
-var uuid=0;
+var Class = require("./class.js");
+var NXTComp = require("./nxtcomp.js");
 /**
  * @class Base组件基类。
  * @param {Object} properties 创建对象的属性参数。可包含此类所有可写属性。
@@ -14,39 +14,41 @@ var uuid=0;
  * @property {String} type 设备类型
  */
 var Base = Class.create(/** @lends Base.prototype */{
-    constructor:function(properties){
-        this.id = uuid;
-        this.type = 'unset';
-        copy(this, properties);
+    constructor: function (properties) {
+        properties = properties || {};
+        this.id = this.id || properties.id || NXTComp.getUid("Base");
+        NXTComp.copy(this, properties);
     },
+    // 控件编号
+    id: null,
+    // 设备编号
+    deviceId: null,
+    // 控件类型
+    type: null,
+    // 控件模板
+    template: null,
+    // 数据标识
+    datacodes: [],
+
     /**
     * 获取参数
     */
-    getParam:function(){
+    getReqParam: function () {
+        var requestParam = [];
+        for (var i = 0; i < this.datacodes.length; i++) {
+            var tep =
+                requestParam.push(this.deviceId + "_" + this.datacodes[i]);
+        }
+        return requestParam;
     },
+
     /**
     * 设置值
-    * @param {Object} val 值对象。
+    * @param {Object} data 值对象。
     */
-    setValue:function(val){
+    setValue: function (data) {
     },
-    /**
-    * 获取模板
-    */
-    getTpl:function(){
-    }
-});
 
-/**
- * 属性拷贝
- */
-function copy(target, source, strict){
-        for(var key in source){
-            if(!strict || target.hasOwnProperty(key) || target[key] !== undefined){
-                target[key] = source[key];
-            }
-        }
-        return target;
-}
+});
 
 module.exports = Base;

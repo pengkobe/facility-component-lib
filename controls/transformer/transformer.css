@@ -1,0 +1,25 @@
+.transformer{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    background: #333;
+    color: #777;
+    border: solid #222;
+}
+.transformer-name,.transformer-bottom{
+    text-align: center;
+}
+
+.transformer-middle{
+    display: flex;
+    flex-direction: row;
+}
+
+.transformer-img{
+    flex: 2;
+}
+
+.transformer-left,.transformer-img,.transformer-right{
+    align-self:center;
+    flex:1;
+}

@@ -1,21 +1,21 @@
 'use strict';
 
-var transformer = require('./transformer/transformer.js');
+var Transformer = require('./transformer/transformer.js');
 
 /**
  * 控件工厂
  */
 var ctlFactory = {
     /**
-    * getDevice 获取设备控件
+    * getDevice 获取变压器控件
     * @param  {[Object]} options 配置
     */
     getTransformer: function (options) {
-        return transformer(options);
+        return  new Transformer(options);
     },
 
-    /**
-     * getControlByType 按类型获取控件
+    /** TODO:动态构建
+     * getControlByType 按设备类型获取控件
      * @param  {[String]}  type    控件类型
      * @param  {[Object]}  options 定位配置
      * @return {[Object]}          控件对象
