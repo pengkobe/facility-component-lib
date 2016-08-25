@@ -2,15 +2,15 @@ var Class = require("../base/class.js");
 var Base = require("../base/base.js");
 var NXTComp = require("../base/nxtcomp.js");
 
-var proto_tpl = __inline('transformer.handlebars');
+var proto_tpl = __inline('low-voltage-switchgear.handlebars');
 
 var Transformer = Class.create({
     Extends: Base,
     constructor: function (properties) {
-        this.id = NXTComp.getUid("Transformer");
+        this.id = NXTComp.getUid("low-voltage-switchgear");
         this.deviceName = this.deviceName || properties.deviceName;
 
-        this.deviceId = this.deviceId || properties.deviceId || NXTComp.getUid("Transformer_deviceId");
+        this.deviceId = this.deviceId || properties.deviceId || NXTComp.getUid("low-voltage-switchgear_deviceId");
         properties.type = this.type || properties.type;
 
         Transformer.superclass.constructor.call(this, properties);
@@ -21,17 +21,16 @@ var Transformer = Class.create({
     deviceName: null,
     template: "",
     // 控件类型
-    typeCode: 1,
-    typeName: '变压器',
+    typeCode: 3,
+    typeName: '低压开关柜',
     datacodes: [1, 47,48,49, 5],
-     //状态图片
+    //状态图片
     state:{
-        // 停止
+         // 停止
         "0":__uri('./img/stop.png'),
         // 运行
         "1":__uri('./img/run.png'),
     },
-
     /**
     * 设置模板
     */
@@ -42,7 +41,7 @@ var Transformer = Class.create({
             img: __uri('./img/stop.png')
         };
         this.template = proto_tpl(data);
-    }
+    },
 
 });
 

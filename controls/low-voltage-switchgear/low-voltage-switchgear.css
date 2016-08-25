@@ -1,31 +1,31 @@
-.transformer{
+.switchgear{
     display: flex;
     flex-direction: column;
-    width: 250px;
+    width: 150px;
     background: #333;
     color: #777;
     border: solid #222;
 }
-.transformer-name,.transformer-bottom{
+.switchgear-name,.switchgear-bottom{
     text-align: center;
 }
 
-.transformer-middle{
+.switchgear-middle{
     display: flex;
     flex-direction: row;
 }
 
-.transformer-img{
+.switchgear-img{
     flex: 2;
 }
-.transformer-img >img{
-    height: 90px;
+.switchgear-img >img{
+    height: 50px;
 }
 
-.transformer-left,.transformer-img,.transformer-right{
+.switchgear-left,.switchgear-img,.switchgear-right{
     align-self:center;
     flex:1;
 }
-.transformer-left{
+.switchgear-left{
   text-align: right;
 }

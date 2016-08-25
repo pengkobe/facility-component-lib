@@ -24,31 +24,59 @@ var Base = Class.create(/** @lends Base.prototype */{
     // 设备编号
     deviceId: null,
     // 控件类型
-    type: null,
+    typeCode: null,
     // 控件模板
     template: null,
     // 数据标识
     datacodes: [],
+    // 位置
+    position: null,
 
     /**
     * 获取参数
     */
     getReqParam: function () {
+        //{ ComponentID: "20", DataKey: req2 }
+        var retObj = {};
         var requestParam = [];
         for (var i = 0; i < this.datacodes.length; i++) {
             var tep =
                 requestParam.push(this.deviceId + "_" + this.datacodes[i]);
         }
-        return requestParam;
+        retObj.ComponentID = this.id;
+        retObj.DataKey = requestParam;
+        return retObj;
     },
 
     /**
-    * 设置值
-    * @param {Object} data 值对象。
-    */
-    setValue: function (data) {
+     * 赋值
+     * @param {Object} data 值对象。
+     */
+    setData: function (data) {
+        // deviceName
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].DataCode == 1) {
+                this.setDeviceStatus(data[i].CollectData);
+            } else {
+                $("#" + this.typeCode + "_" + this.id).find("[datacode=" + data[i].DataCode + "]").html(data[i].CollectData);
+            }
+        }
     },
 
+    /**
+    * 设置设备状态
+    * @param {Object} 启停值。
+    */
+    setDeviceStatus: function (datavalue) {
+        var devobj = $("#" + this.typeCode + "_" + this.id);
+        if (datavalue == 0) {
+            devobj.find("img").attr("src", this.state["0"]);
+            devobj.find("[datacode=1]").html("停止");
+        } else {
+            devobj.find("[img]").attr("src", this.state["1"]);
+            devobj.find("[datacode=1]").html("运行");
+        }
+    }
 });
 
 module.exports = Base;
