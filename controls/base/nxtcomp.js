@@ -17,14 +17,8 @@ var win = window, doc = document, docElem = doc.documentElement,
 
 return {
     /**
-     * @language=en
-     * Gets a globally unique id. Such as Stage1, Bitmap2 etc.
-     * @param {String} prefix Generated id's prefix.
-     * @returns {String} Globally unique id.
-     */
-    /**
      * @language=zh
-     * 获取一个全局唯一的id。如Stage1，Bitmap2等。
+     * 获取一个全局唯一的id。。
      * @param {String} prefix 生成id的前缀。
      * @returns {String} 全局唯一id。
      */
@@ -38,14 +32,6 @@ return {
         return id;
     },
 
-    /**
-     * @language=en
-     * Simple shallow copy objects.
-     * @param {Object} target Target object to copy to.
-     * @param {Object} source Source object to copy.
-     * @param {Boolean} strict Indicates whether replication is undefined property, default is false, i.e., undefined attributes are not copied.
-     * @returns {Object} Object after copying.
-     */
     /**
      * @language=zh
      * 简单的浅复制对象。

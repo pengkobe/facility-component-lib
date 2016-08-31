@@ -1,0 +1,3 @@
+.room-name >div, .type-name >div{
+    display: inline-block;
+}

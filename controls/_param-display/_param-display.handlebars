@@ -1,0 +1,12 @@
+<div class="_param-display" id="{{id}}">
+    {{#each params}}
+    <!-- 参数名称 -->
+    <div class="_param-display-name">
+        <span>{{name}}</span>
+        <!-- 参数值 -->
+        {{#each dcodes}}
+            <span datacode={{datacode}}></span> 
+        {{/each}}
+    </div>
+    {{/each}}
+</div>

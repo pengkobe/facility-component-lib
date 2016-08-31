@@ -1,0 +1,23 @@
+ {{#each room_devicetype}}
+    <div class="nav-room">
+        <!-- 房间名称&参数-->
+        <div class="room-name">
+            <div>{{name}}</div>
+            <div class="room-params" typeid={{roominfo}}></div>
+        </div>
+      
+        <div class="device-type">
+            {{#each types}}
+            <!-- 设备类型名称&参数-->
+            <div class="type-name">
+                {{name}}
+                <div class="type-params" typeid={{typeinfo}}></div>
+            </div>
+          
+            <div class="device-list" typeid={{typeid}}>
+                <!-- 设备列表 -->
+            </div>
+            {{/each}}
+        </div>
+    </div>
+{{/each}}

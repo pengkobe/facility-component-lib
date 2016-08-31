@@ -43,7 +43,6 @@ var Transformer = Class.create({
         };
         this.template = proto_tpl(data);
     }
-
 });
 
 module.exports = Transformer;

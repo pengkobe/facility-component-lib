@@ -5,10 +5,20 @@ var high_voltage_switchgear = require('./high-voltage-switchgear/high-voltage-sw
 var low_voltage_switchgear = require('./low-voltage-switchgear/low-voltage-switchgear.js');
 var Transformer = require('./transformer/transformer.js');
 
+var _param_display = require('./_param-display/_param-display.js');
+
 /**
  * 控件工厂
  */
 var ctlFactory = {
+    /**
+    * getDevice 参数控件
+    * @param  {[Object]} options 配置
+    */
+    getParam_display: function (options) {
+        return new _param_display(options);
+    },
+
     /**
     * getDevice 获取变压器控件
     * @param  {[Object]} options 配置
@@ -51,6 +61,11 @@ var ctlFactory = {
             // 低压开关柜
             case 3:
                 ctrl = this.getlow_voltage_switchgear(options);
+                break;
+
+            // 参数控件
+            case 'param':
+                ctrl = this.getParam_display(options);
                 break;
             default: return;
         }
