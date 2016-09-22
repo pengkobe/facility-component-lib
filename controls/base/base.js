@@ -73,7 +73,7 @@ var Base = Class.create(/** @lends Base.prototype */{
             devobj.find("img").attr("src", this.state["0"]);
             devobj.find("[datacode=1]").html("停止");
         } else {
-            devobj.find("[img]").attr("src", this.state["1"]);
+            devobj.find("img").attr("src", this.state["1"]);
             devobj.find("[datacode=1]").html("运行");
         }
     }
